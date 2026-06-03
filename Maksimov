@@ -1,0 +1,32 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    setlocale(LC_ALL, "Russian");
+    int n;
+    double dollars;
+
+    cout << "введите количество банков-";
+    cin >> n;
+    cout << "введите сумму для обмена-";
+    cin >> dollars;
+
+    double bestcurs = 0;
+    int bestbank = 0;
+
+    for (int i = 1; i <= n; i++) {
+        double buy, sell;
+        cout << "введите курс покупки для банка" << i << "- ";
+        cin >> buy;
+        cout << "введите курс продажи для банка" << i << "- ";
+        cin >> sell;
+
+        if (buy > bestcurs) {
+            bestcurs = buy;
+            bestbank = i;
+        }
+    }
+    cout << "самый лучший банк-" << bestbank << endl;
+    cout << "вы получите-" << dollars * bestcurs << endl;
+
+}
